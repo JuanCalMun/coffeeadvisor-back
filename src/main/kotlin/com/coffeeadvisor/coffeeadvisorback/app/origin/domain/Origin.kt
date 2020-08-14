@@ -6,10 +6,10 @@ import javax.persistence.*
 
 @Entity
 data class Origin(
-        @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "origin_seq")
-        @SequenceGenerator(name = "origin_seq", sequenceName = "ORIGIN_SEQ", allocationSize = 100)
-        val id: Long,
         @NotNull
         val uuid: UUID,
-        val name: String
+        val name: String,
+        @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "origin_seq")
+        @SequenceGenerator(name = "origin_seq", sequenceName = "ORIGIN_SEQ", allocationSize = 100)
+        val id: Long = 0L
 )

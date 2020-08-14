@@ -6,10 +6,10 @@ import javax.persistence.*
 
 @Entity
 data class ProcessMethod(
-        @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "process_method_seq")
-        @SequenceGenerator(name = "process_method_seq", sequenceName = "PROCESS_METHOD_SEQ", allocationSize = 100)
-        val id: Long,
         @NotNull
         val uuid: UUID,
-        val name: String
+        val name: String,
+        @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "process_method_seq")
+        @SequenceGenerator(name = "process_method_seq", sequenceName = "PROCESS_METHOD_SEQ", allocationSize = 100)
+        val id: Long = 0L
 )

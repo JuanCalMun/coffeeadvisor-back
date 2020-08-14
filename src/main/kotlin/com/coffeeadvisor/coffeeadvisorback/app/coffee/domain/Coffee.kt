@@ -9,18 +9,20 @@ import javax.persistence.*
 
 @Entity
 data class Coffee(
-        @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "universe_seq")
-        @SequenceGenerator(name = "universe_seq", sequenceName = "UNIVERSE_SEQ", allocationSize = 100)
-        val id: Long,
         @NotNull
         val uuid: UUID,
         val name: String,
-        val growHeight: Int,
+        val growHeightMin: Int,
+        val growHeightMax: Int,
         val description: String,
         @ManyToOne(optional = false, fetch = FetchType.EAGER)
         val origin: Origin,
         @ManyToOne(optional = false, fetch = FetchType.EAGER)
         val variety: Variety,
         @ManyToOne(optional = false, fetch = FetchType.EAGER)
-        val processMethod: ProcessMethod
+        val processMethod: ProcessMethod,
+        @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "universe_seq")
+        @SequenceGenerator(name = "universe_seq", sequenceName = "UNIVERSE_SEQ", allocationSize = 100)
+        val id: Long = 0L,
+        val isCaffeineFree: Boolean = false
 )
