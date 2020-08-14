@@ -8,8 +8,8 @@ import javax.persistence.*
 data class Variety(
         @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "variety_seq")
         @SequenceGenerator(name = "variety_seq", sequenceName = "VARIETY_SEQ", allocationSize = 100)
-        var id: Long,
+        val id: Long,
         @NotNull
-        var uid: UUID,
-        var name: String
+        val uid: UUID,
+        val name: String
 )
