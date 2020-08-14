@@ -1,14 +1,18 @@
 package com.coffeeadvisor.coffeeadvisorback.coffee.domain
 
+import com.sun.istack.NotNull
 import java.util.*
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
 @Entity
 data class Coffee(
-        @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
+        @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "universe_seq")
+        @SequenceGenerator(name = "universe_seq", sequenceName = "UNIVERSE_SEQ", allocationSize = 100)
         var id: Long,
-        var uid: UUID
+        @NotNull
+        var uid: UUID,
+        var name: String,
+        var growHeight: Int,
+        var description: String
+//        TODO realation to to origin, processMethod and variety
 )
