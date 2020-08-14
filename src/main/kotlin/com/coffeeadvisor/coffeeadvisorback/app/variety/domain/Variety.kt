@@ -10,6 +10,6 @@ data class Variety(
         @SequenceGenerator(name = "variety_seq", sequenceName = "VARIETY_SEQ", allocationSize = 100)
         val id: Long,
         @NotNull
-        val uid: UUID,
+        val uuid: UUID,
         val name: String
 )

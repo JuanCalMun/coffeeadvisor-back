@@ -10,6 +10,6 @@ data class ProcessMethod(
         @SequenceGenerator(name = "process_method_seq", sequenceName = "PROCESS_METHOD_SEQ", allocationSize = 100)
         val id: Long,
         @NotNull
-        val uid: UUID,
+        val uuid: UUID,
         val name: String
 )
