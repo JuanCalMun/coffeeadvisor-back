@@ -1,4 +1,4 @@
-package com.coffeeadvisor.coffeeadvisorback.variety.domain
+package com.coffeeadvisor.coffeeadvisorback.app.variety.domain
 
 import com.sun.istack.NotNull
 import java.util.*

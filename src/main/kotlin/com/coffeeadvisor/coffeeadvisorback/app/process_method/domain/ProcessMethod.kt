@@ -1,4 +1,4 @@
-package com.coffeeadvisor.coffeeadvisorback.process_method.domain
+package com.coffeeadvisor.coffeeadvisorback.app.process_method.domain
 
 import com.sun.istack.NotNull
 import java.util.*

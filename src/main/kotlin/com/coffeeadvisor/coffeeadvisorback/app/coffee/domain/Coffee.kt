@@ -1,8 +1,8 @@
-package com.coffeeadvisor.coffeeadvisorback.coffee.domain
+package com.coffeeadvisor.coffeeadvisorback.app.coffee.domain
 
-import com.coffeeadvisor.coffeeadvisorback.origin.domain.Origin
-import com.coffeeadvisor.coffeeadvisorback.process_method.domain.ProcessMethod
-import com.coffeeadvisor.coffeeadvisorback.variety.domain.Variety
+import com.coffeeadvisor.coffeeadvisorback.app.origin.domain.Origin
+import com.coffeeadvisor.coffeeadvisorback.app.process_method.domain.ProcessMethod
+import com.coffeeadvisor.coffeeadvisorback.app.variety.domain.Variety
 import com.sun.istack.NotNull
 import java.util.*
 import javax.persistence.*
@@ -13,7 +13,7 @@ data class Coffee(
         @SequenceGenerator(name = "universe_seq", sequenceName = "UNIVERSE_SEQ", allocationSize = 100)
         val id: Long,
         @NotNull
-        val uid: UUID,
+        val uuid: UUID,
         val name: String,
         val growHeight: Int,
         val description: String,
