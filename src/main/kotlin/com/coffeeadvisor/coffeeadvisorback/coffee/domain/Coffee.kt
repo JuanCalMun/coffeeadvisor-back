@@ -1,5 +1,7 @@
 package com.coffeeadvisor.coffeeadvisorback.coffee.domain
 
+import com.coffeeadvisor.coffeeadvisorback.origin.domain.Origin
+import com.coffeeadvisor.coffeeadvisorback.process_method.domain.ProcessMethod
 import com.coffeeadvisor.coffeeadvisorback.variety.domain.Variety
 import com.sun.istack.NotNull
 import java.util.*
@@ -9,13 +11,16 @@ import javax.persistence.*
 data class Coffee(
         @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "universe_seq")
         @SequenceGenerator(name = "universe_seq", sequenceName = "UNIVERSE_SEQ", allocationSize = 100)
-        var id: Long,
+        val id: Long,
         @NotNull
-        var uid: UUID,
-        var name: String,
-        var growHeight: Int,
-        var description: String,
-        @ManyToOne(optional = true, fetch = FetchType.EAGER)
-        var variety: Variety
-//        TODO realation to to origin and processMethod
+        val uid: UUID,
+        val name: String,
+        val growHeight: Int,
+        val description: String,
+        @ManyToOne(optional = false, fetch = FetchType.EAGER)
+        val origin: Origin,
+        @ManyToOne(optional = false, fetch = FetchType.EAGER)
+        val variety: Variety,
+        @ManyToOne(optional = false, fetch = FetchType.EAGER)
+        val processMethod: ProcessMethod
 )
