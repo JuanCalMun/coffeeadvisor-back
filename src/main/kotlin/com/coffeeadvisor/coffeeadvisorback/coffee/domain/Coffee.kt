@@ -12,5 +12,7 @@ data class Coffee(
         @NotNull
         var uid: UUID,
         var name: String,
-        var growHeight: Int
+        var growHeight: Int,
+        var description: String
+//        TODO realation to to origin, processMethod and variety
 )
