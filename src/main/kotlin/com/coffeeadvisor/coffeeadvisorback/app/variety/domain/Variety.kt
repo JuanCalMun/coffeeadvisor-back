@@ -1,5 +1,6 @@
 package com.coffeeadvisor.coffeeadvisorback.app.variety.domain
 
+import com.coffeeadvisor.coffeeadvisorback.app.shared.domain.data.BaseEntity
 import com.sun.istack.NotNull
 import java.util.*
 import javax.persistence.*
@@ -13,4 +14,4 @@ data class Variety(
         @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "variety_seq")
         @SequenceGenerator(name = "variety_seq", sequenceName = "VARIETY_SEQ", allocationSize = 100)
         var id: Long = 0L
-)
+) : BaseEntity()
