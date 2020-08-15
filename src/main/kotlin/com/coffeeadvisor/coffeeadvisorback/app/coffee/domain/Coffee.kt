@@ -2,6 +2,7 @@ package com.coffeeadvisor.coffeeadvisorback.app.coffee.domain
 
 import com.coffeeadvisor.coffeeadvisorback.app.origin.domain.Origin
 import com.coffeeadvisor.coffeeadvisorback.app.process_method.domain.ProcessMethod
+import com.coffeeadvisor.coffeeadvisorback.app.shared.domain.data.BaseEntity
 import com.coffeeadvisor.coffeeadvisorback.app.variety.domain.Variety
 import com.sun.istack.NotNull
 import java.util.*
@@ -25,4 +26,4 @@ data class Coffee(
         @SequenceGenerator(name = "universe_seq", sequenceName = "UNIVERSE_SEQ", allocationSize = 100)
         val id: Long = 0L,
         val isCaffeineFree: Boolean = false
-)
+) : BaseEntity()
