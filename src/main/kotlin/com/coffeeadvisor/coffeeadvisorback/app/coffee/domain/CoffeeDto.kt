@@ -1,9 +1,9 @@
 package com.coffeeadvisor.coffeeadvisorback.app.coffee.domain
 
-import com.coffeeadvisor.coffeeadvisorback.app.origin.domain.Origin
-import com.coffeeadvisor.coffeeadvisorback.app.process_method.domain.ProcessMethod
+import com.coffeeadvisor.coffeeadvisorback.app.origin.domain.OriginDto
+import com.coffeeadvisor.coffeeadvisorback.app.process_method.domain.ProcessMethodDto
 import com.coffeeadvisor.coffeeadvisorback.app.shared.domain.data.BaseDto
-import com.coffeeadvisor.coffeeadvisorback.app.variety.domain.Variety
+import com.coffeeadvisor.coffeeadvisorback.app.variety.domain.VarietyDto
 import java.util.*
 
 data class CoffeeDto(
@@ -12,7 +12,7 @@ data class CoffeeDto(
         val growHeightMin: Int,
         val growHeightMax: Int,
         val description: String,
-        val origin: Origin,
-        val variety: Variety,
-        val processMethod: ProcessMethod
+        val origin: OriginDto,
+        val variety: VarietyDto,
+        val processMethod: ProcessMethodDto
 ) : BaseDto()
