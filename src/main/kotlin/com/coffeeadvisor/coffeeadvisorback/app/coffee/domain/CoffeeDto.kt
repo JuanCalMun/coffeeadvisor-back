@@ -6,7 +6,7 @@ import com.coffeeadvisor.coffeeadvisorback.app.shared.domain.data.BaseDto
 import com.coffeeadvisor.coffeeadvisorback.app.variety.domain.Variety
 import java.util.*
 
-data class CoffeDto(
+data class CoffeeDto(
         val uuid: UUID,
         val name: String,
         val growHeightMin: Int,
