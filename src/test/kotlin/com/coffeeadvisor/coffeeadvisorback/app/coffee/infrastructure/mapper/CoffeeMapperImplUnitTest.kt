@@ -68,7 +68,6 @@ internal class CoffeeMapperImplUnitTest {
             DTO_VARIETY,
             DTO_PROCESS_METHOD)
 
-
     @Test
     fun whenMapEntity_ThenReturnDto() {
         every { originMapper.entityToDto(any()) } returns DTO_ORIGIN
@@ -88,5 +87,4 @@ internal class CoffeeMapperImplUnitTest {
         val coffeeADtoResult = coffeeMapperImpl.dtoToEntity(DTO_COFFEE)
         Assertions.assertEquals(ENTITY_COFFEE, coffeeADtoResult)
     }
-
 }
