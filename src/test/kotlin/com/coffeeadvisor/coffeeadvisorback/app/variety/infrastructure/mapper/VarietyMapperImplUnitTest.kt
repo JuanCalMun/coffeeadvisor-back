@@ -9,9 +9,11 @@ import java.util.*
 internal class VarietyMapperImplUnitTest {
     private val varietyMapperImpl = VarietyMapperImpl()
 
+    private val DEFAULT_ENTITY_ID = 0L
+
     private val UUID_VARIETY_A = UUID.randomUUID()
     private val ENTITY_VARIETY_A = Variety(UUID_VARIETY_A, "Variety A", 1234L)
-    private val ENTITY_VARIETY_A_WITH_DEFAULT_ID = Variety(UUID_VARIETY_A, "Variety A", 0L)
+    private val ENTITY_VARIETY_A_WITH_DEFAULT_ID = Variety(UUID_VARIETY_A, "Variety A", DEFAULT_ENTITY_ID)
     private val DTO_VARIETY_A = VarietyDto(UUID_VARIETY_A, "Variety A")
 
     private val UUID_VARIETY_B = UUID.randomUUID()
@@ -36,5 +38,7 @@ internal class VarietyMapperImplUnitTest {
         val varietyBDtoResult = varietyMapperImpl.dtoToEntity(DTO_VARIETY_B)
         Assertions.assertEquals(ENTITY_VARIETY_A_WITH_DEFAULT_ID, varietyADtoResult)
         Assertions.assertEquals(ENTITY_VARIETY_B_WITH_DEFAULT_ID, varietyBDtoResult)
+        Assertions.assertEquals(DEFAULT_ENTITY_ID, varietyADtoResult.id)
+        Assertions.assertEquals(DEFAULT_ENTITY_ID, varietyBDtoResult.id)
     }
 }
