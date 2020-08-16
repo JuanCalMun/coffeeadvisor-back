@@ -1,4 +1,4 @@
-package com.coffeeadvisor.coffeeadvisorback.app.origin.infrstructure.repository
+package com.coffeeadvisor.coffeeadvisorback.app.origin.infrastructure.repository
 
 import com.coffeeadvisor.coffeeadvisorback.app.origin.domain.Origin
 import org.springframework.data.jpa.repository.JpaRepository

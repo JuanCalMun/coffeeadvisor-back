@@ -3,7 +3,7 @@ package com.coffeeadvisor.coffeeadvisorback.config
 import com.coffeeadvisor.coffeeadvisorback.app.coffee.domain.Coffee
 import com.coffeeadvisor.coffeeadvisorback.app.coffee.infrastructure.repository.CoffeeJpaRepository
 import com.coffeeadvisor.coffeeadvisorback.app.origin.domain.Origin
-import com.coffeeadvisor.coffeeadvisorback.app.origin.infrstructure.repository.OriginJpaRepository
+import com.coffeeadvisor.coffeeadvisorback.app.origin.infrastructure.repository.OriginJpaRepository
 import com.coffeeadvisor.coffeeadvisorback.app.process_method.domain.ProcessMethod
 import com.coffeeadvisor.coffeeadvisorback.app.process_method.infrastructure.repository.ProcessMethodJpaRepository
 import com.coffeeadvisor.coffeeadvisorback.app.variety.domain.Variety
@@ -21,7 +21,8 @@ class DevDatabaseDataLoader {
             coffeeJpaRepository: CoffeeJpaRepository,
             originJpaRepository: OriginJpaRepository,
             processMethodJpaRepository: ProcessMethodJpaRepository,
-            varietyJpaRepository: VarietyJpaRepository) =
+            varietyJpaRepository: VarietyJpaRepository
+    ) =
             ApplicationRunner {
                 val arabigaVariety = varietyJpaRepository.save(Variety(UUID.randomUUID(), "Arabiga Bourbon"))
                 val catuaiVariety = varietyJpaRepository.save(Variety(UUID.randomUUID(), "Catuai"))

@@ -1,4 +1,4 @@
-package com.coffeeadvisor.coffeeadvisorback.app.origin.infrstructure.mapper
+package com.coffeeadvisor.coffeeadvisorback.app.origin.infrastructure.mapper
 
 import com.coffeeadvisor.coffeeadvisorback.app.origin.domain.Origin
 import com.coffeeadvisor.coffeeadvisorback.app.origin.domain.OriginDto
