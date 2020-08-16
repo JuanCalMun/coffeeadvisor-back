@@ -5,7 +5,7 @@ import com.coffeeadvisor.coffeeadvisorback.app.origin.domain.OriginRepository
 import org.springframework.stereotype.Service
 
 @Service
-class OriginProvider(
+class OriginFetcher(
         private val originRepository: OriginRepository,
         private val originMapper: OriginMapper
 ) {

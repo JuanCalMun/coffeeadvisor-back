@@ -1,6 +1,6 @@
 package com.coffeeadvisor.coffeeadvisorback.app.coffee.infrastructure.rest
 
-import com.coffeeadvisor.coffeeadvisorback.app.coffee.application.CoffeeProvider
+import com.coffeeadvisor.coffeeadvisorback.app.coffee.application.CoffeeFetcher
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -11,11 +11,11 @@ import java.util.*
 
 @RestController
 @RequestMapping("api/v1/coffee")
-class CoffeeRestController(private val coffeeProvider: CoffeeProvider) {
+class CoffeeRestController(private val coffeeFetcher: CoffeeFetcher) {
     @GetMapping
-    fun getAllCoffees() = ResponseEntity(coffeeProvider.getAll(), HttpStatus.OK)
+    fun getAllCoffees() = ResponseEntity(coffeeFetcher.getAll(), HttpStatus.OK)
 
     @GetMapping("/{coffeeUUID}")
     fun getCoffeeByUuid(@PathVariable coffeeUUID: UUID) =
-            ResponseEntity(coffeeProvider.getOne(coffeeUUID), HttpStatus.OK)
+            ResponseEntity(coffeeFetcher.getOne(coffeeUUID), HttpStatus.OK)
 }

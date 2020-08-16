@@ -21,7 +21,7 @@ import java.util.*
 import kotlin.NoSuchElementException
 
 @ExtendWith(MockKExtension::class)
-internal class CoffeeProviderUnitTest {
+internal class CoffeeFetcherUnitTest {
 
     @MockK
     private lateinit var coffeeMapper: CoffeeMapper
@@ -30,7 +30,7 @@ internal class CoffeeProviderUnitTest {
     private lateinit var coffeeRepository: CoffeeRepository
 
     @InjectMockKs
-    private lateinit var coffeeProvider: CoffeeProvider
+    private lateinit var coffeeFetcher: CoffeeFetcher
 
 
     private val UUID_ORIGIN = UUID.randomUUID()
@@ -125,7 +125,7 @@ internal class CoffeeProviderUnitTest {
     fun whenGetAllCoffees_ThenReturnCoffees() {
         every { coffeeMapper.entityToDtoList(any()) } returns DTO_LIST_OF_COFFEES
         every { coffeeRepository.getAll() } returns ENTITY_LIST_OF_COFFEES
-        val coffeListResult = coffeeProvider.getAll()
+        val coffeListResult = coffeeFetcher.getAll()
         Assertions.assertEquals(DTO_LIST_OF_COFFEES, coffeListResult)
     }
 
@@ -133,7 +133,7 @@ internal class CoffeeProviderUnitTest {
     fun whenGetAllCoffeesEmptyResponse_ThenReturnEmptyList() {
         every { coffeeMapper.entityToDtoList(any()) } returns emptyList()
         every { coffeeRepository.getAll() } returns emptyList()
-        val coffeListResult = coffeeProvider.getAll()
+        val coffeListResult = coffeeFetcher.getAll()
         Assertions.assertTrue(coffeListResult::isEmpty)
     }
 
@@ -141,7 +141,7 @@ internal class CoffeeProviderUnitTest {
     fun whenGetOneCoffeeWithUUID_ThenReturnCoffee() {
         every { coffeeMapper.entityToDto(any()) } returns DTO_COFFEE
         every { coffeeRepository.findByUUID(any()) } returns Optional.of(ENTITY_COFFEE)
-        val result = coffeeProvider.getOne(UUID_COFFEE)
+        val result = coffeeFetcher.getOne(UUID_COFFEE)
         Assertions.assertEquals(DTO_COFFEE, result)
     }
 
@@ -149,7 +149,7 @@ internal class CoffeeProviderUnitTest {
     fun whenGetOneUnknownCoffeeWithUUID_ThenThrowNoSuchElementException() {
         every { coffeeRepository.findByUUID(any()) } returns Optional.empty()
         Assertions.assertThrows(NoSuchElementException::class.java) {
-            coffeeProvider.getOne(UUID_COFFEE)
+            coffeeFetcher.getOne(UUID_COFFEE)
         }
     }
 
